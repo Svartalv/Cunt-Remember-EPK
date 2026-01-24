@@ -19,7 +19,7 @@
 .musicSection,
 .eventsSection {
   min-height: auto;
-  padding: 100px 20px;
+  padding: 100px 20px 50px 20px;
 }
 
 .container {
@@ -977,16 +977,26 @@
 }
 
 /* Contact */
+#contact .container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contactGroup {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
+  max-width: 600px;
 }
 
 .contactItem {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  align-items: center;
 }
 
 .contactLabel {
@@ -1000,6 +1010,7 @@
 .contactValue {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -1034,6 +1045,7 @@
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .socialLink {
