@@ -6,5 +6,5 @@ export const galleryImages = [
   '/images/irenefinals006.jpg',
   '/images/irene.jpg',
   '/images/18950-001895010023.jpg',
-  '/images/18950-001895020024S.jpg',
+  '/images/forest.jpg',
 ]
