@@ -7,5 +7,4 @@ export const galleryImages = [
   '/images/irene.jpg',
   '/images/18950-001895010023.jpg',
   '/images/18950-001895020024S.jpg',
-  '/images/5R2A1996a.png',
 ]

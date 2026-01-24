@@ -54,6 +54,73 @@ export default function Home() {
     }
   }, [])
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const handleParallax = () => {
+      const parallaxBreak = document.querySelector('.parallaxBreak') as HTMLElement
+      const parallaxImage = document.querySelector('.parallaxBreak .parallaxImage') as HTMLElement
+      
+      if (!parallaxBreak || !parallaxImage) return
+
+      const scrolled = window.pageYOffset
+      const rect = parallaxBreak.getBoundingClientRect()
+      const breakTop = rect.top + scrolled
+      const breakHeight = rect.height
+      const viewportHeight = window.innerHeight
+      
+      // Calculate parallax based on scroll position
+      // Image moves at 50% speed of scroll for parallax effect
+      const parallaxSpeed = 0.5
+      const sectionStart = breakTop - viewportHeight
+      const sectionEnd = breakTop + breakHeight
+      
+      // Only apply parallax when section is visible
+      if (scrolled >= sectionStart && scrolled <= sectionEnd) {
+        const scrollProgress = (scrolled - sectionStart) / (sectionEnd - sectionStart)
+        const offset = (scrollProgress - 0.5) * breakHeight * parallaxSpeed
+        const scale = 1 + scrollProgress * 0.1
+        parallaxImage.style.transform = `translateY(${offset}px) scale(${scale})`
+      } else if (scrolled < sectionStart) {
+        parallaxImage.style.transform = 'translateY(0px) scale(1)'
+      } else {
+        parallaxImage.style.transform = `translateY(${breakHeight * parallaxSpeed * 0.5}px) scale(1.1)`
+      }
+    }
+
+    const handleScrollAnimations = () => {
+      const textElements = document.querySelectorAll('.scrollAnimate')
+      textElements.forEach((element) => {
+        const rect = element.getBoundingClientRect()
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0
+        
+        if (isVisible) {
+          element.classList.add('animated')
+        }
+      })
+    }
+
+    let ticking = false
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleParallax()
+          handleScrollAnimations()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    handleParallax()
+    handleScrollAnimations()
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -68,11 +135,6 @@ export default function Home() {
     }
   }
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText('max@infinity-two.com')
-    // Simple feedback - could be enhanced with a toast
-    alert('Email copied to clipboard')
-  }
 
   return (
     <>
@@ -99,16 +161,17 @@ export default function Home() {
               onClick={() => setSelectedImage(images.bio.main)}
             ></div>
             <div className={styles.bioContent}>
-              <h2 className={styles.h2}>BIO (Short)</h2>
+<<<<<<< HEAD
+              <h2 className={`${styles.h2} scrollAnimate`}>Cunt Remember</h2>
               <div className={styles.bioTextColumns}>
                 <div className={styles.bioTextColumn}>
-                  <p className={styles.bioText}>
+                  <p className={`${styles.bioText} scrollAnimate`}>
                     Cunt Remember is the project of Argentinian artist Irene Carbonari, based in Berlin. With a background in art history and classical music, her work moves between electronic music, performance, and experimental sound.
                   </p>
-                  <p className={styles.bioText}>
+                  <p className={`${styles.bioText} scrollAnimate`}>
                     Rooted in techno and psytrance, her sets follow emotion over genre, navigating shifting BPMs, contrasting textures, and moments of rupture. Her performances balance introspective depth with ecstatic release, using sound as a space for collective experience.
                   </p>
-                  <p className={styles.bioText}>
+                  <p className={`${styles.bioText} scrollAnimate`}>
                     Cunt Remember has performed across Europe and beyond, appearing at venues such as Volksbühne, Berghain Säule, RSO, Oxi, Ohm, and Den Anden Side, and has released music on labels including Katharsis, Magdalena's Apathy, Mama Told Ya, and Fanée.
                   </p>
                 </div>
@@ -120,8 +183,8 @@ export default function Home() {
         {/* MUSIC SECTION */}
         <section id="music" className={`${styles.section} ${styles.musicSection}`}>
           <div className={styles.container}>
-            <h2 className={styles.h2}>Music</h2>
-            <h3 className={styles.sectionSubheading}>Video</h3>
+<<<<<<< HEAD
+            <h2 className={`${styles.h2} scrollAnimate`}>Music</h2>
             <div className={styles.videoEmbed}>
               <iframe
                 width="100%"
@@ -262,10 +325,15 @@ export default function Home() {
           </div>
         </section>
 
+        {/* PARALLAX BREAK AFTER MUSIC */}
+        <section className={`${styles.parallaxBreak} parallaxBreak`}>
+          <div className={`${styles.parallaxImage} parallaxImage`} style={{ backgroundImage: 'url(/images/irenefinals002.jpg)' }}></div>
+        </section>
+
         {/* GALLERY SECTION */}
         <section id="gallery" className={styles.section}>
           <div className={styles.container}>
-            <h2 className={styles.h2}>Gallery</h2>
+            <h2 className={`${styles.h2} scrollAnimate`}>Gallery</h2>
             <div className={styles.galleryGrid}>
               {images.gallery.map((imagePath, index) => (
                 <div
@@ -298,9 +366,11 @@ export default function Home() {
         {/* EVENTS SECTION */}
         <section id="events" className={styles.section}>
           <div className={styles.container}>
-            <h2 className={styles.h2}>Events</h2>
+<<<<<<< HEAD
+            <h2 className={`${styles.h2} scrollAnimate`}>Events</h2>
             <ul className={styles.eventsList}>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
+>>>>>>> fcb9b5b (Fix parallax effect and add scroll animations; move parallax image after music section)
                 <span className={styles.eventDate}>15.05.25</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>∞333</span>
@@ -308,7 +378,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>19.04.25</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Mama Told Ya</span>
@@ -316,7 +386,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>08.08.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Forever Unlimited</span>
@@ -324,7 +394,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>22.08.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Technomate x HEELFX</span>
@@ -332,7 +402,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>13.07.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Fuego</span>
@@ -340,7 +410,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>27.06.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Speedgasm x Harmless Rec</span>
@@ -348,7 +418,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>22.06.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Dreamscape</span>
@@ -356,7 +426,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Copenhagen, Denmark</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>31.03.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Vehemence</span>
@@ -364,7 +434,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>08.03.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Heartscape</span>
@@ -372,7 +442,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>01.03.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Radical Softness Fund</span>
@@ -380,7 +450,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>10.02.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Magdalena's Apathy</span>
@@ -388,7 +458,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>03.02.24</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Sacred Interface</span>
@@ -396,7 +466,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Copenhagen, Denmark</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>16.12.23</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Molt Gallery</span>
@@ -404,7 +474,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>15.09.23</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Deestricted</span>
@@ -412,7 +482,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>24.08.23</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>SÄULE</span>
@@ -420,7 +490,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>01.07.23</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Nature Loves Courage Festival</span>
@@ -428,7 +498,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Crete, Greece</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>15.04.23</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>ParkingStone</span>
@@ -436,7 +506,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>25.02.23</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Metarave</span>
@@ -444,7 +514,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>12.11.22</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Soulfeeder</span>
@@ -452,7 +522,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>09.22.22</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Nature Loves Courage</span>
@@ -460,7 +530,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>29.07.22</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Nasenbluten</span>
@@ -468,7 +538,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Krakow, Poland</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>14.05.22</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Weeeirdos</span>
@@ -476,7 +546,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>05.03.22</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>City Club Cafe</span>
@@ -484,7 +554,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Augsburg, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>31.12.21</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>RO</span>
@@ -492,7 +562,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Buenos Aires, Argentina</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>04.07.20</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>P.L.U.R.</span>
@@ -500,7 +570,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>11.10.19</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Minerals x bbbbbb</span>
@@ -508,7 +578,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Leipzig, Germany</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>03.04.19</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Cocoliche</span>
@@ -516,7 +586,7 @@ export default function Home() {
                   <span className={styles.eventLocation}>Buenos Aires, Argentina</span>
                 </span>
               </li>
-              <li className={styles.eventItem}>
+              <li className={`${styles.eventItem} scrollAnimate`}>
                 <span className={styles.eventDate}>20.04.18</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>Kindcrime Recordings</span>
@@ -531,7 +601,7 @@ export default function Home() {
         {/* CONTACT SECTION */}
         <section id="contact" className={styles.section}>
           <div className={styles.container}>
-            <h2 className={styles.h2}>Contact</h2>
+            <h2 className={`${styles.h2} scrollAnimate`}>Contact</h2>
             <div className={styles.contactGroup}>
               <div className={styles.contactItem}>
                 <span className={styles.contactLabel}>Booking:</span>
@@ -542,13 +612,35 @@ export default function Home() {
                   >
                     max@infinity-two.com
                   </a>
-                  <button
-                    onClick={copyEmail}
-                    className={styles.copyButton}
-                    aria-label="Copy email"
+                </div>
+              </div>
+              <div className={styles.contactItem}>
+                <span className={styles.contactLabel}>Socials:</span>
+                <div className={styles.socialLinks}>
+                  <a
+                    href="https://open.spotify.com/artist/cuntremember"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialLink}
                   >
-                    Copy
-                  </button>
+                    Spotify
+                  </a>
+                  <a
+                    href="https://www.instagram.com/cxntremember.it/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialLink}
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    href="https://www.youtube.com/watch?v=AzaEK8dHFck"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialLink}
+                  >
+                    YouTube
+                  </a>
                 </div>
               </div>
             </div>
@@ -570,7 +662,7 @@ export default function Home() {
           </svg>
         </a>
         <a
-          href="https://www.instagram.com/cuntremember"
+          href="https://www.instagram.com/cxntremember.it/"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.socialBarItem}
@@ -581,7 +673,7 @@ export default function Home() {
           </svg>
         </a>
         <a
-          href="https://www.youtube.com/@cuntremember"
+          href="https://www.youtube.com/watch?v=AzaEK8dHFck"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.socialBarItem}
