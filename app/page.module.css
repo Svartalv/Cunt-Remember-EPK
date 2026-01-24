@@ -343,7 +343,8 @@
 }
 
 /* Parallax Sections - TEMPORARILY DISABLED */
-/* .parallaxSection {
+/*
+.parallaxSection {
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -370,7 +371,7 @@
   }
 }
 
-/* Parallax Break Section */
+Parallax Break Section
 .parallaxBreak {
   height: 50vh;
   min-height: 400px;
@@ -400,6 +401,7 @@
   box-shadow: 0 0 0 40px #ffffff;
   transition: transform 0.05s linear;
 }
+*/
 
 /* Scroll Animation Styles */
 .scrollAnimate {
