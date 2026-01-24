@@ -342,8 +342,8 @@
   }
 }
 
-/* Parallax Sections */
-.parallaxSection {
+/* Parallax Sections - TEMPORARILY DISABLED */
+/* .parallaxSection {
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -413,7 +413,7 @@
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .parallaxBreak {
     height: 40vh;
     min-height: 300px;
@@ -428,7 +428,7 @@
     height: 120%;
     box-shadow: 0 0 0 20px #ffffff;
   }
-}
+} */
 
 /* Bio Section Layout */
 .bioContainer {
