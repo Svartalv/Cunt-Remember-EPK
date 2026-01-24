@@ -1282,7 +1282,7 @@
   gap: 0.75rem;
   z-index: 999;
   padding: 16px 12px;
-  background: linear-gradient(135deg, rgba(200, 200, 200, 0.3), rgba(180, 180, 180, 0.2));
+  background: white;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 12px;
