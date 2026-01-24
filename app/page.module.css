@@ -279,29 +279,33 @@
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.8;
   color: var(--text-light);
-  max-width: 700px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.bioText:last-child {
+  margin-bottom: 0;
 }
 
 /* Hero Section */
 .heroSection {
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   background-repeat: no-repeat;
   position: relative;
   margin: 0;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.3s ease;
   width: 100vw;
   min-height: 100vh;
   height: 100vh;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-}
-
-.heroSection:hover {
-  transform: scale(1.01);
 }
 
 .heroOverlay {
@@ -324,6 +328,9 @@
     width: 100vw;
     min-height: 100vh;
     height: 100vh;
+    background-size: cover;
+    background-position: right center;
+    background-color: #000000;
   }
   
   .heroNameContainer {
@@ -378,17 +385,21 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 .bioTextColumns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 .bioTextColumn {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  gap: 0;
 }
 
 .bioImage {
@@ -522,6 +533,32 @@
   75% {
     transform: translateY(-2px) translate(-1px, -1px);
   }
+}
+
+/* Section Subheadings */
+.sectionSubheading {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.sectionSubheading:first-of-type {
+  margin-top: 0;
+}
+
+/* Releases Heading */
+.releasesHeading {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
 }
 
 /* Music List */
@@ -663,6 +700,10 @@
   border-top: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+.mixesSection .sectionSubheading {
+  margin-top: 0;
+}
+
 .mixesEmbeds {
   display: flex;
   flex-direction: column;
@@ -710,20 +751,61 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0;
+  margin-top: 2rem;
 }
 
-.eventsList li {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
-  font-size: clamp(0.95rem, 2vw, 1.05rem);
+.eventItem {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.eventDate {
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.eventContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.eventName {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.eventVenue {
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.eventLocation {
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   color: var(--text-light);
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .eventItem {
+    grid-template-columns: 90px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
 }
 
 /* Gallery */
 .galleryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -753,14 +835,59 @@
   transform: scale(1.02);
 }
 
+.galleryItem:hover .downloadButton {
+  opacity: 1;
+}
+
+.downloadButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+  color: #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.downloadButton:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.downloadButton svg {
+  width: 20px;
+  height: 20px;
+}
+
 .galleryImageOverlay {
   display: none;
 }
 
 @media (max-width: 768px) {
   .galleryGrid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
+  }
+  
+  .downloadButton {
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .downloadButton svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -865,11 +992,12 @@
   gap: 1.5rem;
   z-index: 999;
   padding: 20px 16px;
-  background: rgba(128, 128, 128, 0.3);
+  background: linear-gradient(135deg, rgba(200, 200, 200, 0.3) 0%, rgba(180, 180, 180, 0.4) 100%);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .socialBarItem {
@@ -878,15 +1006,15 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: #666666;
+  color: #333333;
   transition: all 0.3s ease;
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .socialBarItem:hover {
   opacity: 1;
-  color: #888888;
-  transform: scale(1.1);
+  color: #000000;
+  transform: scale(1.15);
 }
 
 .socialBarItem svg {
@@ -894,10 +1022,11 @@
   height: 24px;
 }
 
+
 @media (max-width: 768px) {
   .socialBar {
     right: 10px;
-    padding: 15px 8px;
+    padding: 15px 10px;
     gap: 1rem;
   }
   
