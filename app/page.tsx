@@ -626,7 +626,7 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.contactImage}>
-              <img src="/images/green.jpg" alt="Contact" />
+              <img src="/images/forest.jpg" alt="Contact" />
             </div>
           </div>
         </section>
