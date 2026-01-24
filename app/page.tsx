@@ -57,37 +57,6 @@ export default function Home() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const handleParallax = () => {
-      const parallaxBreak = document.querySelector('.parallaxBreak') as HTMLElement
-      const parallaxImage = document.querySelector('.parallaxBreak .parallaxImage') as HTMLElement
-      
-      if (!parallaxBreak || !parallaxImage) return
-
-      const scrolled = window.pageYOffset
-      const rect = parallaxBreak.getBoundingClientRect()
-      const breakTop = rect.top + scrolled
-      const breakHeight = rect.height
-      const viewportHeight = window.innerHeight
-      
-      // Calculate parallax based on scroll position
-      // Image moves at 50% speed of scroll for parallax effect
-      const parallaxSpeed = 0.5
-      const sectionStart = breakTop - viewportHeight
-      const sectionEnd = breakTop + breakHeight
-      
-      // Only apply parallax when section is visible
-      if (scrolled >= sectionStart && scrolled <= sectionEnd) {
-        const scrollProgress = (scrolled - sectionStart) / (sectionEnd - sectionStart)
-        const offset = (scrollProgress - 0.5) * breakHeight * parallaxSpeed
-        const scale = 1 + scrollProgress * 0.1
-        parallaxImage.style.transform = `translateY(${offset}px) scale(${scale})`
-      } else if (scrolled < sectionStart) {
-        parallaxImage.style.transform = 'translateY(0px) scale(1)'
-      } else {
-        parallaxImage.style.transform = `translateY(${breakHeight * parallaxSpeed * 0.5}px) scale(1.1)`
-      }
-    }
-
     const handleScrollAnimations = () => {
       const textElements = document.querySelectorAll('.scrollAnimate')
       textElements.forEach((element) => {
@@ -104,7 +73,6 @@ export default function Home() {
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          handleParallax()
           handleScrollAnimations()
           ticking = false
         })
@@ -113,7 +81,6 @@ export default function Home() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
-    handleParallax()
     handleScrollAnimations()
 
     return () => {
@@ -161,7 +128,6 @@ export default function Home() {
               onClick={() => setSelectedImage(images.bio.main)}
             ></div>
             <div className={styles.bioContent}>
-<<<<<<< HEAD
               <h2 className={`${styles.h2} scrollAnimate`}>Cunt Remember</h2>
               <div className={styles.bioTextColumns}>
                 <div className={styles.bioTextColumn}>
@@ -183,7 +149,6 @@ export default function Home() {
         {/* MUSIC SECTION */}
         <section id="music" className={`${styles.section} ${styles.musicSection}`}>
           <div className={styles.container}>
-<<<<<<< HEAD
             <h2 className={`${styles.h2} scrollAnimate`}>Music</h2>
             <div className={styles.videoEmbed}>
               <iframe
@@ -323,11 +288,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* PARALLAX BREAK AFTER MUSIC */}
-        <section className={`${styles.parallaxBreak} parallaxBreak`}>
-          <div className={`${styles.parallaxImage} parallaxImage`} style={{ backgroundImage: 'url(/images/irenefinals002.jpg)' }}></div>
         </section>
 
         {/* GALLERY SECTION */}
