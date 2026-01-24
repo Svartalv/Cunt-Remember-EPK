@@ -326,11 +326,9 @@ export default function Home() {
         {/* EVENTS SECTION */}
         <section id="events" className={styles.section}>
           <div className={styles.container}>
-<<<<<<< HEAD
             <h2 className={`${styles.h2} scrollAnimate`}>Events</h2>
             <ul className={styles.eventsList}>
               <li className={`${styles.eventItem} scrollAnimate`}>
->>>>>>> fcb9b5b (Fix parallax effect and add scroll animations; move parallax image after music section)
                 <span className={styles.eventDate}>15.05.25</span>
                 <span className={styles.eventContent}>
                   <span className={styles.eventName}>∞333</span>
