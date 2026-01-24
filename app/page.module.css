@@ -1333,23 +1333,23 @@
   .contactContainer {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 5px 20px 2px 20px;
+    padding: 10px 20px;
     padding-right: 20px;
   }
   
   .contactImage {
-    min-height: 70vh;
+    min-height: 40vh;
     min-width: 100%;
   }
   
   .contactImage img {
-    min-height: 70vh;
+    min-height: 40vh;
   }
   
   .contactContent {
     padding-top: 1rem;
   }
-  
+
   .contactContainer {
     min-height: auto;
   }
