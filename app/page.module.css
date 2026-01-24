@@ -735,7 +735,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 100;
   margin-top: 0.5rem;
 }
