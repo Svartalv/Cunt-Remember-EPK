@@ -142,6 +142,45 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ARCANE XIII PODCASTS */}
+        <section className={`${styles.section} ${styles.arcaneSection}`}>
+          <div className={styles.container}>
+            <p className={styles.arcaneTag}>Arcane XIII</p>
+            <h2 className={`${styles.h2} scrollAnimate`}>Arcane XIII Podcasts</h2>
+            <p className={styles.arcaneText}>
+              Arcane XIII is a rotating podcast series that captures the latest mixes,
+              conversations, and field recordings from Cunt Remember. Every broadcast
+              is curated for deep listening—tune-in via Spotify, SoundCloud or YouTube.
+            </p>
+            <div className={styles.podcastButtons}>
+              <a
+                className={styles.podcastButton}
+                href="https://open.spotify.com/artist/cuntremember"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Arcane XIII · Spotify
+              </a>
+              <a
+                className={styles.podcastButton}
+                href="https://soundcloud.com/cuntremember"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Arcane XIII · SoundCloud
+              </a>
+              <a
+                className={styles.podcastButton}
+                href="https://www.youtube.com/c/CuntRemember"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Arcane XIII · YouTube
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* BIO SECTION */}
         <section id="bio" className={styles.section}>
           <div className={styles.bioContainer}>
@@ -331,228 +370,36 @@ export default function Home() {
           <div className={styles.container}>
             <h2 className={`${styles.h2} scrollAnimate`}>Events</h2>
             <ul className={styles.eventsList}>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2025">
-                <span className={styles.eventDate}>15.05.25</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>∞333</span>
-                  <span className={styles.eventVenue}>Volksbühne</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2025">
-                <span className={styles.eventDate}>19.04.25</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Mama Told Ya</span>
-                  <span className={styles.eventVenue}>RSO</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
-                <span className={styles.eventDate}>08.08.24</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Forever Unlimited</span>
-                  <span className={styles.eventVenue}>Ohm</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
-                <span className={styles.eventDate}>22.08.24</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Technomate x HEELFX</span>
-                  <span className={styles.eventVenue}>RSO</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
-                <span className={styles.eventDate}>13.07.24</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Fuego</span>
-                  <span className={styles.eventVenue}>AEDEN</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
-                <span className={styles.eventDate}>27.06.24</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Speedgasm x Harmless Rec</span>
-                  <span className={styles.eventVenue}>Berlin</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
-                <span className={styles.eventDate}>22.06.24</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Dreamscape</span>
-                  <span className={styles.eventVenue}>Den Anden Side</span>
-                  <span className={styles.eventLocation}>Copenhagen, Denmark</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`}>
-                <span className={styles.eventDate}>31.03.24</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Vehemence</span>
-                  <span className={styles.eventVenue}>Oxi</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
               <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
                 <span className={styles.eventDate}>08.03.24</span>
                 <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Heartscape</span>
-                  <span className={styles.eventVenue}>Zur Klappe</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`}>
-                <span className={styles.eventDate}>01.03.24</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Radical Softness Fund</span>
-                  <span className={styles.eventVenue}>Oxi</span>
+                  <span className={styles.eventName}>Le Temple Obscura</span>
+                  <span className={styles.eventVenue}>Arcane XIII</span>
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
               <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
-                <span className={styles.eventDate}>10.02.24</span>
+                <span className={styles.eventDate}>15.03.24</span>
                 <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Magdalena's Apathy</span>
-                  <span className={styles.eventVenue}>Ohm</span>
+                  <span className={styles.eventName}>Bliss Bliss Podcast</span>
+                  <span className={styles.eventVenue}>ACUD Berlin</span>
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
               <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
-                <span className={styles.eventDate}>03.02.24</span>
+                <span className={styles.eventDate}>22.03.24</span>
                 <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Sacred Interface</span>
-                  <span className={styles.eventVenue}>Den Anden Side</span>
-                  <span className={styles.eventLocation}>Copenhagen, Denmark</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2023">
-                <span className={styles.eventDate}>16.12.23</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Molt Gallery</span>
-                  <span className={styles.eventVenue}>Berlin</span>
+                  <span className={styles.eventName}>Encore une fois</span>
+                  <span className={styles.eventVenue}>Oxi Club</span>
                   <span className={styles.eventLocation}>Berlin, Germany</span>
                 </span>
               </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2023">
-                <span className={styles.eventDate}>15.09.23</span>
+              <li className={`${styles.eventItem} scrollAnimate`} data-year="2024">
+                <span className={styles.eventDate}>01.05.24</span>
                 <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Deestricted</span>
-                  <span className={styles.eventVenue}>Club Ost</span>
+                  <span className={styles.eventName}>Gender Bender</span>
+                  <span className={styles.eventVenue}>Crack Bellmer</span>
                   <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`}>
-                <span className={styles.eventDate}>24.08.23</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>SÄULE</span>
-                  <span className={styles.eventVenue}>Berghain</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2023">
-                <span className={styles.eventDate}>01.07.23</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Nature Loves Courage Festival</span>
-                  <span className={styles.eventVenue}>Sougia</span>
-                  <span className={styles.eventLocation}>Crete, Greece</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2023">
-                <span className={styles.eventDate}>15.04.23</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>ParkingStone</span>
-                  <span className={styles.eventVenue}>Trauma Bar</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2023">
-                <span className={styles.eventDate}>25.02.23</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Metarave</span>
-                  <span className={styles.eventVenue}>Mensch Meier</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2022">
-                <span className={styles.eventDate}>12.11.22</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Soulfeeder</span>
-                  <span className={styles.eventVenue}>Re:mise</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2022">
-                <span className={styles.eventDate}>09.22.22</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Nature Loves Courage</span>
-                  <span className={styles.eventVenue}>Wilde Renate</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2022">
-                <span className={styles.eventDate}>29.07.22</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Nasenbluten</span>
-                  <span className={styles.eventVenue}>Krakow</span>
-                  <span className={styles.eventLocation}>Krakow, Poland</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2022">
-                <span className={styles.eventDate}>14.05.22</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Weeeirdos</span>
-                  <span className={styles.eventVenue}>Fitzroy</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2022">
-                <span className={styles.eventDate}>05.03.22</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>City Club Cafe</span>
-                  <span className={styles.eventVenue}>Augsburg</span>
-                  <span className={styles.eventLocation}>Augsburg, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`}>
-                <span className={styles.eventDate}>31.12.21</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>RO</span>
-                  <span className={styles.eventVenue}>Buenos Aires</span>
-                  <span className={styles.eventLocation}>Buenos Aires, Argentina</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2020">
-                <span className={styles.eventDate}>04.07.20</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>P.L.U.R.</span>
-                  <span className={styles.eventVenue}>Berlin</span>
-                  <span className={styles.eventLocation}>Berlin, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2019">
-                <span className={styles.eventDate}>11.10.19</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Minerals x bbbbbb</span>
-                  <span className={styles.eventVenue}>mjut</span>
-                  <span className={styles.eventLocation}>Leipzig, Germany</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2019">
-                <span className={styles.eventDate}>03.04.19</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Cocoliche</span>
-                  <span className={styles.eventVenue}>Buenos Aires</span>
-                  <span className={styles.eventLocation}>Buenos Aires, Argentina</span>
-                </span>
-              </li>
-              <li className={`${styles.eventItem} scrollAnimate`} data-year="2018">
-                <span className={styles.eventDate}>20.04.18</span>
-                <span className={styles.eventContent}>
-                  <span className={styles.eventName}>Kindcrime Recordings</span>
-                  <span className={styles.eventVenue}>R33</span>
-                  <span className={styles.eventLocation}>Barcelona, Spain</span>
                 </span>
               </li>
             </ul>

@@ -317,6 +317,51 @@
   display: none;
 }
 
+.arcaneSection {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 248, 248, 0.95));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.arcaneTag {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.arcaneText {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+  max-width: 720px;
+  margin-bottom: 1.5rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.podcastButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.podcastButton {
+  padding: 10px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.podcastButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-light);
+}
+
 .heroNameContainer {
   position: absolute;
   bottom: 80px;
